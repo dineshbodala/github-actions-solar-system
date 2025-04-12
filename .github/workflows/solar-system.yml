@@ -17,7 +17,9 @@ jobs:
         steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
-
+          with:
+            path: ~/.npm
+            key: '${{ runner.os }}-node-modules-${{ hashFiles(''package-lock.json'') }}'
         - name: Setup NodeJS Version
           uses: actions/setup-node@v4
           with:
